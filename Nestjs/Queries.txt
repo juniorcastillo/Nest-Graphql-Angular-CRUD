@@ -1,0 +1,16 @@
+# Write your query or mutation here
+mutation{
+     createemployee(input:{name:"JUNIOR" , 
+       lastname:"Castillo"
+      , age: 10, occupation:"Web Developer",
+        address:"Malaga Spain"}) {
+        name
+        lastname
+        age
+        occupation
+        address
+        id
+      }
+}
+
+
