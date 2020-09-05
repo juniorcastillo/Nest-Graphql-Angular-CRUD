@@ -4,5 +4,10 @@ export interface IUser extends Document {
     readonly username: string;
     readonly password: string;
     readonly userId: Number;
+    readonly name?: string;
+    readonly lastname?: string;
+    readonly departament?: string;
+
+
 
 }

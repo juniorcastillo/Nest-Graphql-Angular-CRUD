@@ -19,7 +19,7 @@ export class AuthResolver {
     @Args('username') username: string,
     @Args('password') password: string,
   ): Promise<AuthType[]> {
-    const user = await this.usersService.findOne(username);
+    const user: IUser = await this.usersService.findOne(username) as IUser;
     if (user && user.password === password) {
       const token = await this.login(user);
       return [token];
@@ -31,8 +31,10 @@ export class AuthResolver {
   async login(user) {
     const payload = {
       username: user.username,
+      name: user.name,
+      lastname: user.lastname,
+      departament: user.departament,
       sub: user.userId,
-      pwd: user.password,
     };
     const token = { access_token: this.jwtService.sign(payload) , error:''};
 
